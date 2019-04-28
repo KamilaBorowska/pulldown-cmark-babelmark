@@ -1,0 +1,10 @@
+[package]
+name = "pulldown-cmark-babelmark"
+version = "0.1.0"
+authors = ["Konrad Borowski <konrad@borowski.pw>"]
+edition = "2018"
+
+[dependencies]
+pulldown-cmark = "=0.5.0" # Update version in main.rs when changing
+serde = { version = "1.0.90", features = ["derive"] }
+warp = "0.1.15"
