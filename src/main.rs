@@ -15,6 +15,7 @@ struct Output {
 }
 
 fn main() {
+    env_logger::init();
     let route = path!("api" / "babelmark" / "pulldown-cmark")
         .and(warp::path::end())
         .and(warp::query())
@@ -27,6 +28,7 @@ fn main() {
                 version: "0.5.0",
                 html,
             })
-        });
+        })
+        .with(warp::log("babelmark"));
     warp::serve(route).run(([127, 0, 0, 1], 8081));
 }
