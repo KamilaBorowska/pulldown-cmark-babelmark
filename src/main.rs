@@ -16,6 +16,7 @@ struct Output {
 
 fn main() {
     let route = path!("api" / "babelmark" / "pulldown-cmark")
+        .and(warp::path::end())
         .and(warp::query())
         .map(|Query { text }| {
             let parser = Parser::new(&text);
