@@ -6,6 +6,6 @@ edition = "2018"
 
 [dependencies]
 env_logger = "0.6.1"
-pulldown-cmark = "=0.5.2" # Update version in main.rs when changing
+pulldown-cmark = "=0.6.0" # Update version in main.rs when changing
 serde = { version = "1.0.90", features = ["derive"] }
 warp = "0.1.15"
