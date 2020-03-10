@@ -14,10 +14,10 @@ struct Output {
     html: String,
 }
 
-fn main() {
+#[tokio::main]
+async fn main() {
     env_logger::init();
     let route = path!("api" / "babelmark" / "pulldown-cmark")
-        .and(warp::path::end())
         .and(warp::query())
         .map(|Query { text }| {
             let parser = Parser::new(&text);
@@ -30,5 +30,5 @@ fn main() {
             })
         })
         .with(warp::log("babelmark"));
-    warp::serve(route).run(([127, 0, 0, 1], 8081));
+    warp::serve(route).run(([127, 0, 0, 1], 8081)).await;
 }
