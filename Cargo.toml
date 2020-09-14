@@ -8,5 +8,5 @@ edition = "2018"
 env_logger = "0.6.1"
 pulldown-cmark = "=0.8.0" # Update version in main.rs when changing
 serde = { version = "1.0.90", features = ["derive"] }
-tokio = { version = "0.2.13", features = ["macros"] }
+tokio = { version = "0.2.13", features = ["macros", "rt-threaded"] }
 warp = { version = "0.2.2", default-features = false }
