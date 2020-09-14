@@ -25,7 +25,7 @@ async fn main() {
             html::push_html(&mut html, parser);
             warp::reply::json(&Output {
                 name: "pulldown-cmark",
-                version: "0.7.0",
+                version: "0.8.0",
                 html,
             })
         })
