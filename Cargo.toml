@@ -5,7 +5,7 @@ authors = ["Konrad Borowski <konrad@borowski.pw>"]
 edition = "2018"
 
 [dependencies]
-env_logger = "0.6.1"
+env_logger = "0.8.1"
 serde = { version = "1.0.90", features = ["derive"] }
 tokio = { version = "0.2.13", features = ["macros", "rt-threaded"] }
 warp = { version = "0.2.2", default-features = false }
