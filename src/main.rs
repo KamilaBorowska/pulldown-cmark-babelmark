@@ -1,34 +1,29 @@
 use pulldown_cmark::{html, Parser};
-use serde::{Deserialize, Serialize};
-use warp::{path, Filter};
-
-#[derive(Deserialize)]
-struct Query {
-    text: String,
-}
+use rocket::serde::json::Json;
+use rocket::serde::Serialize;
+use rocket::{get, launch, routes};
 
 #[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
 struct Output {
     name: &'static str,
     version: &'static str,
     html: String,
 }
 
-#[tokio::main]
-async fn main() {
-    env_logger::init();
-    let route = path!("api" / "babelmark" / "pulldown-cmark")
-        .and(warp::query())
-        .map(|Query { text }| {
-            let parser = Parser::new(&text);
-            let mut html = String::new();
-            html::push_html(&mut html, parser);
-            warp::reply::json(&Output {
-                name: "pulldown-cmark",
-                version: "0.8.0",
-                html,
-            })
-        })
-        .with(warp::log("babelmark"));
-    warp::serve(route).run(([127, 0, 0, 1], 8081)).await;
+#[get("/?<text>")]
+fn output_html(text: &str) -> Json<Output> {
+    let parser = Parser::new(text);
+    let mut html = String::new();
+    html::push_html(&mut html, parser);
+    Json(Output {
+        name: "pulldown-cmark",
+        version: "0.8.0",
+        html,
+    })
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build().mount("/api/babelmark/pulldown-cmark", routes![output_html])
 }
