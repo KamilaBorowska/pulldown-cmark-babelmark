@@ -18,7 +18,7 @@ fn output_html(text: &str) -> Json<Output> {
     html::push_html(&mut html, parser);
     Json(Output {
         name: "pulldown-cmark",
-        version: "0.8.0",
+        version: "0.9.1",
         html,
     })
 }

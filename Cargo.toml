@@ -8,6 +8,6 @@ edition = "2018"
 rocket = { version = "0.5.0-rc.1", features = ["json"] }
 
 [dependencies.pulldown-cmark]
-version = "=0.8.0" # Update version in main.rs when changing
+version = "=0.9.1" # Update version in main.rs when changing
 default-features = false
 features = ["simd"]
