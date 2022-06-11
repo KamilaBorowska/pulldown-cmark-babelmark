@@ -5,9 +5,12 @@ authors = ["Konrad Borowski <konrad@borowski.pw>"]
 edition = "2021"
 
 [dependencies]
+pulldown-cmark = { version = "0.9.1", default-features = false, features = ["simd"] }
 rocket = { version = "=0.5.0-rc.2", features = ["json"] }
 
-[dependencies.pulldown-cmark]
-version = "=0.9.1" # Update version in main.rs when changing
-default-features = false
-features = ["simd"]
+[build-dependencies]
+cargo-lock = "8.0.1"
+itertools = "0.10.3"
+
+[dev-dependencies]
+serde_json = "1.0.81"
