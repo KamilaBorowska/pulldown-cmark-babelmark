@@ -9,7 +9,7 @@ pulldown-cmark = { version = "0.9.2", default-features = false, features = ["sim
 rocket = { version = "=0.5.0-rc.2", features = ["json"] }
 
 [build-dependencies]
-cargo-lock = "8.0.2"
+cargo-lock = "8.0.3"
 itertools = "0.10.5"
 
 [dev-dependencies]
