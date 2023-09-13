@@ -1,8 +1,13 @@
+# SPDX-FileCopyrightText: 2023 Konrad Borowski <konrad@borowski.pw>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 [package]
 name = "pulldown-cmark-babelmark"
 version = "0.1.0"
 authors = ["Konrad Borowski <konrad@borowski.pw>"]
 edition = "2021"
+license = "AGPL-3.0-or-later"
 
 [dependencies]
 pulldown-cmark = { version = "0.9.3", default-features = false, features = ["simd"] }
