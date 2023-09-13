@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Konrad Borowski <konrad@borowski.pw>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 use pulldown_cmark::{html, Parser};
 use rocket::serde::json::Json;
 use rocket::serde::Serialize;
